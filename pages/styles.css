@@ -1,16 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
 body {
     margin: 0;
     padding: 0;
     font-family: 'Manrope', sans-serif;
+
+}
+::selection{
+    background-color: rgb(255, 148, 148);
 }
 
 .root {
     display: flex;
     place-content: center flex-start;
     align-items: center;
-    background-color: rgb(0, 0, 0);
+    /* background-color: white; */
+    background-image: url("../assets/bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     flex-flow: column nowrap;
     gap: 10px;
     height: 100vh;
@@ -29,10 +38,44 @@ body {
     height: fit-content;
     max-width: 975px;
     overflow: auto;
-    padding: 50px;
+    margin: 6em 0 0 0;
     position: relative;
     width: auto;
-    gap: 64px;
+    gap: 32px;
+}
+
+/* Editing the Navbar  */
+#navbar{
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    position: fixed;
+    z-index: 2;
+    margin: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.logotext{
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+#links{
+    display: flex;
+    align-items: center;
+}
+
+#links > ul > li{
+    list-style: none;
+
+}
+
+#links > ul > li > a{
+    text-decoration: none;
+    color: black;    
 }
 
 .header {    
@@ -40,7 +83,7 @@ body {
     flex-direction: column;
     width: 100%;
     align-items: center;
-    color: #FFF
+    color: black;
 }
 
 .header-title {
@@ -63,7 +106,7 @@ body {
     font-style: normal;
     font-weight: 400;
     line-height: 1.4em;
-    color: rgba(255, 255, 255, 0.75);
+    color: rgb(37, 37, 37);
 }
 
 .prompt-container {
@@ -80,14 +123,14 @@ body {
 
 .prompt-box {
     border-bottom-width: 1px;
-    border-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(63, 63, 63, 0.119);
     border-left-width: 1px;
     border-right-width: 1px;
     border-style: solid;
     border-top-width: 1px;
     place-content: flex-start;
     align-items: flex-start;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.13);
     border-radius: 16px;
     display: flex;
     flex: 0 0 auto;
@@ -108,9 +151,10 @@ body {
     letter-spacing: 0px;
     line-height: 1.6em;
     text-align: start;
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(28, 28, 28, 0.881);
     text-decoration: none;
     text-transform: none;
+    transition: all 0.3s ease-in-out;
 }
 
 textarea {
@@ -119,7 +163,8 @@ textarea {
 
 
 .prompt-box:focus {
-    border-color:rgba(255, 255, 255, 0.75)
+    border-color:rgba(63, 63, 63, 0.614);
+    backdrop-filter: blur(10px);
 }
 
 
@@ -172,7 +217,7 @@ textarea {
 .generate-button {
     place-content: flex-start;
     align-items: flex-start;
-    background-color: rgb(255, 79, 18);
+    background-color: rgb(255, 148, 148);
     border-radius: 100px;
     display: flex;
     flex: 0 0 auto;
@@ -186,6 +231,11 @@ textarea {
     width: min-content;
     will-change: transform;
     cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+
+.generate-button:hover{
+    background-color: rgb(254, 120, 120);
 }
 
 .generate {
@@ -207,67 +257,6 @@ textarea {
     cursor: default;
 }
 
-.badge-container {
-    display: flex;
-    bottom: 20px;
-    flex: 0 0 auto;
-    height: auto;
-    left: 20px;
-    position: fixed;
-    width: auto;
-    z-index: 1;
-}
-
-.badge-container a {
-    border-bottom-width: 1px;
-    border-color: rgba(255, 255, 255, 0.1);
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-style: solid;
-    border-top-width: 1px;
-    background-color: rgb(0, 0, 0);
-    border-radius: 54.3478% / 238.095%;
-    filter: grayscale(1);
-    transform: none;
-    transform-origin: 50% 50% 0px;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    line-height: 1em;
-    color: #fff;
-    padding: 12px;
-    text-decoration: none;
-}
-
-.badge {
-    display: flex;
-    align-items: center;
-}
-
-.badge img {
-    width: 21px;
-    height: 17px;
-    image-rendering: pixelated;
-    flex-shrink: 0;
-    fill: black;
-    color: black;
-    transform: none;
-    transform-origin: 50% 50% 0px;
-    padding-right: 5px;
-}
-
-.badge p {
-    margin: 0;
-}
-
-.grow {
-    transition: all .2s ease-in-out;
-}
-
-.grow:hover {
-    transform: scale(1.1);
-}
-
 .output {
     place-content: center flex-start;
     align-items: center;
@@ -280,6 +269,9 @@ textarea {
     overflow: hidden;
     position: relative;
     width: 100%;
+    backdrop-filter: blur(20px);
+    margin-bottom: 2em;
+    
 }
 
 .output-header-container {
@@ -304,7 +296,7 @@ textarea {
     letter-spacing: 0px;
     line-height: 1.4em;
     text-align: start;
-    color: #ffffff;
+    color: #1d1d1d;
     text-decoration: none;
     text-transform: none;
     margin: 0;
@@ -323,7 +315,12 @@ textarea {
 .output-content p {
     text-align: center;
     white-space: pre-line;
-    color: rgba(255, 255, 255, 0.5);
+    color: #1d1d1d;
+    margin: 0 20px 0 20px;
+}
+
+.creditbs{
+    font-weight: 700;
 }
 
 @media (min-width: 810px) and (max-width: 1199px) {
@@ -389,8 +386,6 @@ textarea {
         width: 100%;
     }
 }
-
-
 
  /* Loading ring animation */
 .loader {
